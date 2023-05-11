@@ -7,5 +7,6 @@ app_name = 'posts'
 
 
 urlpatterns = [
-    path('posts/', views.PostView.as_view(), name='posts'),
+    path('', views.PostView.as_view(), name='posts'),
+    path('comments/<int:pk>/', views.CommentView.as_view(), name='comments'),
 ]
