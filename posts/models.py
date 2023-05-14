@@ -32,3 +32,8 @@ class Comment(models.Model):
     
     def __str__(self):
         return f'{self.user} - {self.content[:20]}'
+    
+    
+class UpVote(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = 'upvotes', on_delete = models.CASCADE)
+    post = models.ForeignKey(Post, related_name = 'upvotes', on_delete = models.CASCADE)
